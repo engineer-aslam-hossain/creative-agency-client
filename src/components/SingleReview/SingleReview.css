@@ -1,0 +1,20 @@
+img.card-img-top.personImg {
+  width: 4rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.personDetails h5 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.personDetails span {
+  font-weight: 600;
+}
+.singlerReview {
+  max-width: 30% !important;
+}
+@media (max-width: 768px) {
+  .singlerReview {
+    max-width: 90% !important;
+  }
+}

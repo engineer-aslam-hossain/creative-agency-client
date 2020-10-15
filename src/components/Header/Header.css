@@ -1,0 +1,29 @@
+img.logoImg {
+  width: 8rem;
+}
+header.container {
+  position: absolute;
+  top: 0;
+  left: 5.5rem;
+  margin: 1rem 0;
+}
+.navbar-nav a {
+  margin: 0rem 1.3rem;
+  margin-top: 1rem;
+  text-decoration: none !important;
+  color: #474747 !important;
+  font-size: 14px;
+}
+
+.navbar-nav .active {
+  border-bottom: 3px solid #7ab259;
+  font-weight: 700;
+}
+
+a.loginBtn {
+  background-color: #111430;
+  color: white !important;
+  padding: 10px 45px;
+  border-radius: 6px;
+  margin-right: 0rem;
+}
