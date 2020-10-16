@@ -73,6 +73,11 @@ const Order = () => {
 
   return (
     <div className='orderForm'>
+      {!newOrder.success && (
+        <p style={{ color: "red" }}>
+          <small>you must fill up all field include picture</small>
+        </p>
+      )}
       {newOrder.success && <p className='text-success'>{newOrder.success}</p>}
       {newOrder.error && <p className='text-danger'>{newOrder.error}</p>}
       <Form onSubmit={handleSubmit} ref={formRef}>

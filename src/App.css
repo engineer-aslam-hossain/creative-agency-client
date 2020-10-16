@@ -35,6 +35,16 @@
 }
 
 @media (max-width: 768px) {
+  .ml-auto.justify-content-center.align-items-center.navbar-nav {
+    background: white;
+    width: 10rem;
+    z-index: 1000;
+    position: relative;
+    right: -20px;
+    padding-bottom: 2rem;
+    padding-right: 1rem;
+    top: 1rem;
+  }
   .headerMain::after {
     display: none;
   }
@@ -58,16 +68,7 @@
   .headerMain::after {
     display: none;
   }
-  .ml-auto.justify-content-center.align-items-center.navbar-nav {
-    background: white;
-    width: 10rem;
-    z-index: 1000;
-    position: relative;
-    right: -20px;
-    padding-bottom: 2rem;
-    padding-right: 1rem;
-    top: 1rem;
-  }
+
   .heading h1 {
     font-size: 32px !important;
   }

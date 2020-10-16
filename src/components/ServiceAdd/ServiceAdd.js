@@ -61,6 +61,11 @@ const ServiceAdd = () => {
   // ////////////////////////////
   return (
     <div className='serviceAddForm'>
+      {!newService.success && (
+        <p style={{ color: "red" }}>
+          <small>you must fill up all field include picture</small>
+        </p>
+      )}
       {newService.success && (
         <p className='text-success'>{newService.success}</p>
       )}

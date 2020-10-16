@@ -51,6 +51,11 @@ const CreateReview = () => {
   };
   return (
     <div className='reviewForm'>
+      {!newReview.success && (
+        <p style={{ color: "red" }}>
+          <small>you must fill up all field include picture</small>
+        </p>
+      )}
       {newReview.success && <p className='text-success'>{newReview.success}</p>}
       {newReview.error && <p className='text-danger'>{newReview.error}</p>}
       <Form onSubmit={handleReviewSubmit} ref={formRef}>

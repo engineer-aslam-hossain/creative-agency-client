@@ -113,7 +113,7 @@ const DashBoard = () => {
 
         <div className='col-10 dashboardRight pt-5'>
           <div className='pageNameandUser d-flex justify-content-between px-5'>
-            <h6>Order</h6>
+            <h6>{!LoggedInUser.setUser ? "Order" : "Admin Panel"}</h6>
             {<p>{LoggedInUser.displayName} </p>}
           </div>
           <div className='dashboardDetails'>
