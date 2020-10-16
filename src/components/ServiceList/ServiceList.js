@@ -5,7 +5,9 @@ const ServiceList = () => {
   const { LoggedInUser, SetLoggedInUser } = useContext(UserContext);
   const [listOfService, SetListOfService] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:8080/getMyOrder?email=${LoggedInUser.email}`)
+    fetch(
+      `https://creative-agency-backend.herokuapp.com/getMyOrder?email=${LoggedInUser.email}`
+    )
       .then(res => res.json())
       .then(getlistOfService => {
         SetListOfService(getlistOfService);

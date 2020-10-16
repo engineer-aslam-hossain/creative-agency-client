@@ -4,7 +4,7 @@ const Review = () => {
   const [reviews, SetReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/getReviews")
+    fetch("https://creative-agency-backend.herokuapp.com/getReviews")
       .then(res => res.json())
       .then(getReviews => {
         SetReviews(getReviews.slice(0, 6));

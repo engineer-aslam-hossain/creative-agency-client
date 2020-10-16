@@ -5,7 +5,7 @@ const Partner = () => {
   const [partners, SetPartner] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/getPartner")
+    fetch("https://creative-agency-backend.herokuapp.com/getPartner")
       .then(res => res.json())
       .then(getPartner => {
         SetPartner(getPartner);

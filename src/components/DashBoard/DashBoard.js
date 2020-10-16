@@ -26,7 +26,9 @@ const DashBoard = () => {
   const { LoggedInUser, SetLoggedInUser } = useContext(UserContext);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/getAdmin?email=${LoggedInUser.email}`)
+    fetch(
+      `https://creative-agency-backend.herokuapp.com/getAdmin?email=${LoggedInUser.email}`
+    )
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -47,7 +49,7 @@ const DashBoard = () => {
   // just change the params to add all different types of fake data into database by this function
 
   const handleAddDatabase = () => {
-    // fetch("http://localhost:8080/addServices", {
+    // fetch("https://creative-agency-backend.herokuapp.com/addServices", {
     //   method: "POST",
     //   headers: { "Content-Type": "application/json" },
     //   body: JSON.stringify(fakeServices),

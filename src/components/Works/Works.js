@@ -5,7 +5,7 @@ const Works = () => {
   const [Sliders, SetSlider] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/getSliderData")
+    fetch("https://creative-agency-backend.herokuapp.com/getSliderData")
       .then(res => res.json())
       .then(getSlider => {
         SetSlider(getSlider);
