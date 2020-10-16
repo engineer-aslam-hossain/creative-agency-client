@@ -28,13 +28,3 @@ a.hire {
   border-radius: 6px;
   text-decoration: none !important;
 }
-/* .headerMain::after {
-  content: "";
-  position: absolute;
-  height: 104%;
-  width: 100%;
-  top: 0;
-  background-color: white;
-  z-index: 10000;
-  clip-path: polygon(0 98%, 100% 84%, 100% 100%, 0 100%);
-} */

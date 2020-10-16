@@ -27,3 +27,18 @@ a.loginBtn {
   border-radius: 6px;
   margin-right: 0rem;
 }
+button.logout {
+  background-color: #111430;
+  color: white !important;
+  padding: 10px 40px;
+  border-radius: 6px;
+  text-decoration: none !important;
+  border: none;
+  position: relative;
+  font-size: 14px;
+  top: 0.5rem;
+  outline: none;
+}
+button.logout:focus {
+  outline: none;
+}

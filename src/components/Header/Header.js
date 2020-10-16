@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../App";
 import logo from "../../images/logos/logo.png";
 import "./Header.css";
 const Header = () => {
+  const { LoggedInUser, SetLoggedInUser } = useContext(UserContext);
+
+  const logoutButtonHandler = () => {
+    SetLoggedInUser("");
+  };
   return (
     <header className='container'>
       <Navbar expand='lg'>
@@ -21,9 +27,15 @@ const Header = () => {
             <Link to='/portfolio'>Our Portfolio</Link>
             <Link to='/team'>Our Team</Link>
             <Link to='/contact'>Contact Us</Link>
-            <Link to='/login' className='loginBtn'>
-              Login
-            </Link>
+            {!LoggedInUser.email ? (
+              <Link to='/login' className='loginBtn'>
+                Login
+              </Link>
+            ) : (
+              <button className='logout' onClick={logoutButtonHandler}>
+                Logout
+              </button>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import SingleService from "../SingleService/SingleService";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../App";
+import { Frame } from "framer";
 const Service = () => {
   const { selectedService, SetSelectedService } = useContext(UserContext);
   let history = useHistory();
@@ -16,7 +17,7 @@ const Service = () => {
     fetch("http://localhost:8080/getServices")
       .then(res => res.json())
       .then(getServices => {
-        SetServices(getServices);
+        SetServices(getServices.slice(0, 6));
       });
   }, []);
 
@@ -30,11 +31,22 @@ const Service = () => {
         </h3>
         <div className='row justify-content-around'>
           {services.map(service => (
-            <SingleService
+            <Frame
+              whileHover={{ scale: 1.15, rotate: 360 }}
+              size={300}
+              radius={30}
+              background={"#fff"}
               key={service._id}
-              service={service}
-              handleRoute={handleRoute}
-            />
+              scale={0.85}
+              className={"d-flex justify-content-center align-items-center"}
+              position={"relative"}
+              transition={{ duration: 2 }}>
+              <SingleService
+                key={service._id}
+                service={service}
+                handleRoute={handleRoute}
+              />
+            </Frame>
           ))}
         </div>
       </div>

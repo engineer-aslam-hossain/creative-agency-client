@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Image } from "react-bootstrap";
 import "./SingleReview.css";
 const SingleReview = props => {
   const { name, img, designation, review } = props.review;
@@ -7,7 +7,7 @@ const SingleReview = props => {
     <Card className='singlerReview col-md-4 m-3'>
       <Card.Body className='p-4'>
         <div className='person d-flex  align-items-center'>
-          <Card.Img className='personImg' variant='top' src={img} />
+          <Image className='personImg' variant='top' src={img} roundedCircle />
           <div className='personDetails'>
             <h5 className='m-0'>{name}</h5>
             <span>{designation}</span>

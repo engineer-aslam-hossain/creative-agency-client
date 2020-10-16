@@ -19,7 +19,7 @@ const Works = () => {
     slidesToScroll: 1,
     autoplay: true,
     speed: 3000,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     cssEase: "linear",
     initialSlide: 0,
     responsive: [
@@ -71,31 +71,6 @@ const Works = () => {
           ))}
         </Slider>
       </div>
-
-      {/* <Swiper
-        slidesPerView={3}
-        loop={true}
-        spaceBetween={50}
-        pagination
-        breakpoints={{
-          // when window width is >= 640px
-          640: {
-            width: 640,
-            slidesPerView: 1,
-          },
-          // when window width is >= 768px
-          768: {
-            width: 768,
-            slidesPerView: 2,
-          },
-        }}
-        autoplay>
-        {Slider.map(slider => (
-          <SwiperSlide key={slider._id}>
-            <img src={slider.img} alt='' />
-          </SwiperSlide>
-        ))}
-      </Swiper> */}
     </section>
   );
 };

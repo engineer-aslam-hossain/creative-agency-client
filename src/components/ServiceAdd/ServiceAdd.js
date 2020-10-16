@@ -46,7 +46,7 @@ const ServiceAdd = () => {
         SetNewService(serviceInfo);
       })
       .then(data => {
-        console.log(data);
+        // console.log(data);
       })
       .catch(error => {
         console.error(error);

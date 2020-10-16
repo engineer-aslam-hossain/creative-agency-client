@@ -8,12 +8,14 @@ const Order = () => {
   const { selectedService, SetSelectedService } = useContext(UserContext);
 
   const [newOrder, SetNewOrder] = useState({
-    company_name: "",
+    img: `${selectedService.img}`,
+    company_name: `${LoggedInUser.displayName}`,
     name: `${selectedService.name}`,
     details: "",
     price: `${selectedService.price}`,
     email: `${LoggedInUser.email}`,
     success: "",
+    status: "pending",
     error: "",
   });
 
@@ -35,11 +37,13 @@ const Order = () => {
     const formData = new FormData();
     console.log(newOrder);
     formData.append("file", file);
+    formData.append("img", newOrder.img);
     formData.append("name", newOrder.name);
     formData.append("email", newOrder.email);
     formData.append("price", newOrder.price);
     formData.append("company_name", newOrder.company_name);
     formData.append("details", newOrder.details);
+    formData.append("status", newOrder.status);
 
     fetch("http://localhost:8080/addNewOrder", {
       method: "POST",
@@ -53,7 +57,7 @@ const Order = () => {
         SetNewOrder(orderInfo);
       })
       .then(data => {
-        console.log(data);
+        // console.log(data);
       })
       .catch(error => {
         console.error(error);
@@ -76,8 +80,10 @@ const Order = () => {
           <Form.Control
             onBlur={inputHandler}
             type='text'
+            defaultValue={LoggedInUser.displayName}
             name='company_name'
             placeholder='Your Name/Company Name'
+            readOnly
           />
         </Form.Group>
         <Form.Group controlId='formBasicEmail'>

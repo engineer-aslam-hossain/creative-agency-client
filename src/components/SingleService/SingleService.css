@@ -1,7 +1,4 @@
 .service {
-  margin: 12px;
-  max-width: 30% !important;
-  padding: 1rem 3rem;
   border-radius: 10px;
   transition: all 0.6s ease;
 }

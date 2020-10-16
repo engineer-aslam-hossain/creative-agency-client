@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Card, Image } from "react-bootstrap";
 import { UserContext } from "../../App";
 const ServiceList = () => {
   const { LoggedInUser, SetLoggedInUser } = useContext(UserContext);
@@ -22,12 +22,25 @@ const ServiceList = () => {
           <Card.Body className='p-4'>
             <div className='person'>
               <div className='cardTop d-flex justify-content-between align-items-center'>
-                <Card.Img
+                <Image
                   style={{ width: "4rem" }}
                   variant='top'
-                  src={`data:image/png;base64,${singleService.image.img}`}
+                  src={
+                    singleService.img ||
+                    `data:image/png;base64,${singleService.image.img}`
+                  }
+                  roundedCircle
+                  // {`data:image/png;base64,${singleService.image.img}`}
+                  // if we want to show uploaded picture we can show that by this
                 />
-                <Button>Done</Button>
+                <p
+                  style={{
+                    color: "#009444",
+                    background: "#C6FFE0",
+                    padding: ".6rem 2rem",
+                  }}>
+                  {singleService.status}
+                </p>
               </div>
               <div className='personDetails my-3'>
                 <h5 className='m-0'>{singleService.name}</h5>

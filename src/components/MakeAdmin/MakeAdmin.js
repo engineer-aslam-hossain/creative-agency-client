@@ -32,7 +32,7 @@ const MakeAdmin = () => {
         result.json();
       })
       .then(data => {
-        console.log(data);
+        // console.log(data);
       })
       .catch(err => {
         const errUpdate = { ...newAdmin };

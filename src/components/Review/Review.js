@@ -7,7 +7,7 @@ const Review = () => {
     fetch("http://localhost:8080/getReviews")
       .then(res => res.json())
       .then(getReviews => {
-        SetReviews(getReviews);
+        SetReviews(getReviews.slice(0, 6));
       });
   }, []);
 

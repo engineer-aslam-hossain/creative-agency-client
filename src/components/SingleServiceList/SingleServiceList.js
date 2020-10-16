@@ -2,11 +2,21 @@ import React from "react";
 import { Form } from "react-bootstrap";
 
 const SingleServiceList = props => {
-  const { name, email, company_name, details } = props.services;
+  const { name, email, company_name, details, status } = props.services;
 
-  const changeStatus = e => {
-    console.log(e.target.value);
+  const changeStatus = (id, e) => {
+    const formData = new FormData();
+    formData.append("status", e.target.value);
+    fetch(`http://localhost:8080/updateStatus/${id}`, {
+      method: "PATCH",
+      body: formData,
+    })
+      .then(res => res.json())
+      .then(data => console.log("updated"));
+    // console.log(e.target.value, id);
   };
+
+  // ////////////////////////
 
   return (
     <>
@@ -19,13 +29,15 @@ const SingleServiceList = props => {
         <td>{name} </td>
         <td>{details}</td>
         <td>
-          <Form.Group controlId='exampleForm.ControlSelect1'>
-            <Form.Control as='select' name='status' onChange={changeStatus}>
-              <option>Pending</option>
-              <option>Done</option>
-              <option>On Going</option>
-            </Form.Control>
-          </Form.Group>
+          <Form.Control
+            as='select'
+            name='status'
+            onChange={e => changeStatus(props.services._id, e)}>
+            <option>{status}</option>
+            <option>Pending</option>
+            <option>OnGoing</option>
+            <option>Done</option>
+          </Form.Control>
         </td>
       </tr>
     </>

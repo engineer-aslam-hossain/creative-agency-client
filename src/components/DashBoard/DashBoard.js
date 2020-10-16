@@ -10,7 +10,7 @@ import {
 import SplitPane from "react-split-pane";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useEffect } from "react";
-import { Link, Route } from "react-router-dom";
+import { Link, Route, useHistory } from "react-router-dom";
 import logo from "../../images/logos/logo.png";
 import Order from "../Order/Order";
 import "./DashBoard.css";
@@ -20,6 +20,7 @@ import ServicesList from "../ServicesList/ServicesList";
 import ServiceAdd from "../ServiceAdd/ServiceAdd";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import { UserContext } from "../../App";
+import fakeServices from "../../fakeData/fakeServices";
 
 const DashBoard = () => {
   const { LoggedInUser, SetLoggedInUser } = useContext(UserContext);
@@ -43,20 +44,23 @@ const DashBoard = () => {
 
   /////////// add to database ////////
 
+  // just change the params to add all different types of fake data into database by this function
+
   const handleAddDatabase = () => {
-    // fetch("http://localhost:8080/addSliderData", {
+    // fetch("http://localhost:8080/addServices", {
     //   method: "POST",
     //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(fakeSlider),
+    //   body: JSON.stringify(fakeServices),
     // })
     //   .then(result => result.json())
     //   .then(data => {
     //     console.log(data);
     //   });
   };
-
+  let history = useHistory();
   const logoutHandle = () => {
     SetLoggedInUser("");
+    history.push("/");
   };
 
   return (
@@ -96,25 +100,6 @@ const DashBoard = () => {
                   </Link>
                 </div>
               )}
-
-              {/* {LoggedInUser.email !== "aslamhossain.dev@gmail.com" && ( */}
-
-              {/* )} */}
-              {/* {LoggedInUser.email === "aslamhossain.dev@gmail.com" && ( */}
-
-              {/* // )} */}
-              {/* {LoggedInUser.email !== "aslamhossain.dev@gmail.com" && ( */}
-
-              {/* )} */}
-              {/* {LoggedInUser.email === "aslamhossain.dev@gmail.com" && ( */}
-
-              {/* // )} */}
-              {/* {LoggedInUser.email === "aslamhossain.dev@gmail.com" && ( */}
-
-              {/* // )} */}
-              {/* {LoggedInUser.email === "aslamhossain.dev@gmail.com" && ( */}
-
-              {/* // )} */}
             </div>
           </div>
           <div className='mt-auto'>
@@ -131,7 +116,6 @@ const DashBoard = () => {
           </div>
           <div className='dashboardDetails'>
             <div className='componentList' style={{ padding: "3rem" }}>
-              {/* <Order /> */}
               <Route path='/dashboard/order' component={Order} />
               <Route path='/dashboard/service-list' component={ServiceList} />
               <Route path='/dashboard/servicesList' component={ServicesList} />

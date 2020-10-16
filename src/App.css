@@ -44,6 +44,14 @@
   .slick-slide {
     width: 260px !important;
   }
+  .cardTop p {
+    margin-top: 1rem !important;
+  }
+  .login.card {
+    width: 18rem !important;
+    height: 12rem !important;
+    margin: 3rem auto !important;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {

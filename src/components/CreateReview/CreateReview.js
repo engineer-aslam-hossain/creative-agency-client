@@ -1,8 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Form } from "react-bootstrap";
+import { UserContext } from "../../App";
 import "./CreateReview.css";
 const CreateReview = () => {
+  const { LoggedInUser, SetLoggedInUser } = useContext(UserContext);
   const [newReview, SetNewReview] = useState({
+    img: `${LoggedInUser.photoURL}`,
     name: "",
     designation: "",
     review: "",
@@ -35,7 +38,7 @@ const CreateReview = () => {
         result.json();
       })
       .then(data => {
-        console.log(data);
+        // console.log(data);
       })
       .catch(err => {
         const errUpdate = { ...newReview };
