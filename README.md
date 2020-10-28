@@ -21,4 +21,4 @@ Role : Full Stack Developer
 ● Cloud infrastructure: Heroku
 ● HTML5, CSS3, Bootstrap4, JS, Git, Firebase, etc.
 
-## [Creative Agency Server Code](https://creative-agency-bd3fb.web.app/)
+## [Creative Agency Server Repository](https://creative-agency-bd3fb.web.app/)
