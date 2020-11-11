@@ -1,14 +1,14 @@
-import React, { useRef, useState } from "react";
-import { Form } from "react-bootstrap";
-import "./ServiceAdd.css";
+import React, { useRef, useState } from 'react';
+import { Form } from 'react-bootstrap';
+import './ServiceAdd.css';
 
 const ServiceAdd = () => {
   const [newService, SetNewService] = useState({
-    name: "",
-    details: "",
-    price: "",
-    success: "",
-    error: "",
+    name: '',
+    details: '',
+    price: '',
+    success: '',
+    error: '',
   });
 
   const inputHandler = e => {
@@ -29,30 +29,29 @@ const ServiceAdd = () => {
     e.preventDefault();
     const formData = new FormData();
 
-    formData.append("file", serviceFile);
-    formData.append("name", newService.name);
-    formData.append("price", newService.price);
-    formData.append("details", newService.details);
+    formData.append('file', serviceFile);
+    formData.append('name', newService.name);
+    formData.append('price', newService.price);
+    formData.append('details', newService.details);
 
-    fetch("https://creative-agency-backend.herokuapp.com/addNewService", {
-      method: "POST",
+    fetch('https://creative-agency-backend.herokuapp.com/addNewService', {
+      method: 'POST',
       body: formData,
     })
       .then(response => {
         response.json();
         const serviceInfo = { ...newService };
-        serviceInfo.error = "";
-        serviceInfo.success = "Service Add Successfully";
+        serviceInfo.error = '';
+        serviceInfo.success = 'Service Add Successfully';
         SetNewService(serviceInfo);
       })
       .then(data => {
         // console.log(data);
       })
       .catch(error => {
-        console.error(error);
         const updateServiceInfo = { ...newService };
-        updateServiceInfo.error = "Something wrong happened";
-        updateServiceInfo.success = "";
+        updateServiceInfo.error = 'Something wrong happened';
+        updateServiceInfo.success = '';
         SetNewService(updateServiceInfo);
       });
     formRef.current.reset();
@@ -62,7 +61,7 @@ const ServiceAdd = () => {
   return (
     <div className='serviceAddForm'>
       {!newService.success && (
-        <p style={{ color: "red" }}>
+        <p style={{ color: 'red' }}>
           <small>you must fill up all field include picture</small>
         </p>
       )}

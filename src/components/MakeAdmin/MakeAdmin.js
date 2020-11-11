@@ -1,11 +1,11 @@
-import React, { useRef, useState } from "react";
-import { Form } from "react-bootstrap";
-import "./MakeAdmin.css";
+import React, { useRef, useState } from 'react';
+import { Form } from 'react-bootstrap';
+import './MakeAdmin.css';
 const MakeAdmin = () => {
   const [newAdmin, SetNewAdmin] = useState({
-    email: "",
-    success: "",
-    error: "",
+    email: '',
+    success: '',
+    error: '',
   });
 
   const inputHandler = e => {
@@ -19,15 +19,15 @@ const MakeAdmin = () => {
 
   const handleReviewSubmit = event => {
     event.preventDefault();
-    fetch("https://creative-agency-backend.herokuapp.com/addAdmin", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    fetch('https://creative-agency-backend.herokuapp.com/addAdmin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newAdmin),
     })
       .then(result => {
         const updateAdmin = { ...newAdmin };
-        updateAdmin.success = "Set Admin Successfully";
-        updateAdmin.error = "";
+        updateAdmin.success = 'Set Admin Successfully';
+        updateAdmin.error = '';
         SetNewAdmin(updateAdmin);
         result.json();
       })
@@ -36,11 +36,10 @@ const MakeAdmin = () => {
       })
       .catch(err => {
         const errUpdate = { ...newAdmin };
-        errUpdate.success = "";
-        errUpdate.error = "something wrong happened";
+        errUpdate.success = '';
+        errUpdate.error = 'something wrong happened';
         SetNewAdmin(errUpdate);
       });
-    console.log(newAdmin);
     formRef.current.reset();
   };
   return (

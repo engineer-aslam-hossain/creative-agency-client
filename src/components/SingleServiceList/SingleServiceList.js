@@ -1,19 +1,16 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+import React from 'react';
+import { Form } from 'react-bootstrap';
 
 const SingleServiceList = props => {
   const { name, email, company_name, details, status } = props.services;
 
   const changeStatus = (id, e) => {
     const formData = new FormData();
-    formData.append("status", e.target.value);
+    formData.append('status', e.target.value);
     fetch(`https://creative-agency-backend.herokuapp.com/updateStatus/${id}`, {
-      method: "PATCH",
+      method: 'PATCH',
       body: formData,
-    })
-      .then(res => res.json())
-      .then(data => console.log("updated"));
-    // console.log(e.target.value, id);
+    }).then(res => res.json());
   };
 
   // ////////////////////////
@@ -22,7 +19,7 @@ const SingleServiceList = props => {
     <>
       <tr
         style={{
-          fontSize: ".9rem",
+          fontSize: '.9rem',
         }}>
         <td> {company_name} </td>
         <td>{email} </td>

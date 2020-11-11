@@ -6,21 +6,20 @@ import {
   faPlus,
   faUserPlus,
   faCartPlus,
-} from "@fortawesome/free-solid-svg-icons";
-import SplitPane from "react-split-pane";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useEffect } from "react";
-import { Link, Route, useHistory } from "react-router-dom";
-import logo from "../../images/logos/logo.png";
-import Order from "../Order/Order";
-import "./DashBoard.css";
-import ServiceList from "../ServiceList/ServiceList";
-import CreateReview from "../CreateReview/CreateReview";
-import ServicesList from "../ServicesList/ServicesList";
-import ServiceAdd from "../ServiceAdd/ServiceAdd";
-import MakeAdmin from "../MakeAdmin/MakeAdmin";
-import { UserContext } from "../../App";
-import fakeServices from "../../fakeData/fakeServices";
+} from '@fortawesome/free-solid-svg-icons';
+import SplitPane from 'react-split-pane';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useContext, useEffect } from 'react';
+import { Link, Route, useHistory } from 'react-router-dom';
+import logo from '../../images/logos/logo.png';
+import Order from '../Order/Order';
+import './DashBoard.css';
+import ServiceList from '../ServiceList/ServiceList';
+import CreateReview from '../CreateReview/CreateReview';
+import ServicesList from '../ServicesList/ServicesList';
+import ServiceAdd from '../ServiceAdd/ServiceAdd';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import { UserContext } from '../../App';
 
 const DashBoard = () => {
   const { LoggedInUser, SetLoggedInUser } = useContext(UserContext);
@@ -31,7 +30,7 @@ const DashBoard = () => {
     )
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         if (data) {
           const newUser = { ...LoggedInUser };
           newUser.setUser = true;
@@ -61,8 +60,8 @@ const DashBoard = () => {
   };
   let history = useHistory();
   const logoutHandle = () => {
-    SetLoggedInUser("");
-    history.push("/");
+    SetLoggedInUser('');
+    history.push('/');
   };
 
   return (
@@ -113,11 +112,11 @@ const DashBoard = () => {
 
         <div className='col-10 dashboardRight pt-5'>
           <div className='pageNameandUser d-flex justify-content-between px-5'>
-            <h6>{!LoggedInUser.setUser ? "Order" : "Admin Panel"}</h6>
+            <h6>{!LoggedInUser.setUser ? 'Order' : 'Admin Panel'}</h6>
             {<p>{LoggedInUser.displayName} </p>}
           </div>
           <div className='dashboardDetails'>
-            <div className='componentList' style={{ padding: "3rem" }}>
+            <div className='componentList' style={{ padding: '3rem' }}>
               <Route path='/dashboard/order' component={Order} />
               <Route path='/dashboard/service-list' component={ServiceList} />
               <Route path='/dashboard/servicesList' component={ServicesList} />

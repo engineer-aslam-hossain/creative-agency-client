@@ -4,5 +4,9 @@
 }
 
 img.sliderImg {
-  width: 24rem;
+  width: 22rem;
+}
+.sliderDiv {
+  width: 82%;
+  margin: 0 auto;
 }

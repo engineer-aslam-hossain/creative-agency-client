@@ -1,16 +1,16 @@
-import React, { useContext, useRef, useState } from "react";
-import { Form } from "react-bootstrap";
-import { UserContext } from "../../App";
-import "./CreateReview.css";
+import React, { useContext, useRef, useState } from 'react';
+import { Form } from 'react-bootstrap';
+import { UserContext } from '../../App';
+import './CreateReview.css';
 const CreateReview = () => {
   const { LoggedInUser, SetLoggedInUser } = useContext(UserContext);
   const [newReview, SetNewReview] = useState({
     img: `${LoggedInUser.photoURL}`,
-    name: "",
-    designation: "",
-    review: "",
-    success: "",
-    error: "",
+    name: '',
+    designation: '',
+    review: '',
+    success: '',
+    error: '',
   });
 
   const inputHandler = e => {
@@ -25,15 +25,15 @@ const CreateReview = () => {
 
   const handleReviewSubmit = event => {
     event.preventDefault();
-    fetch("https://creative-agency-backend.herokuapp.com/addSingleReview", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    fetch('https://creative-agency-backend.herokuapp.com/addSingleReview', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newReview),
     })
       .then(result => {
         const updateReview = { ...newReview };
-        updateReview.success = "Review Create Successfully";
-        updateReview.error = "";
+        updateReview.success = 'Review Create Successfully';
+        updateReview.error = '';
         SetNewReview(updateReview);
         result.json();
       })
@@ -42,11 +42,10 @@ const CreateReview = () => {
       })
       .catch(err => {
         const errUpdate = { ...newReview };
-        errUpdate.success = "";
-        errUpdate.error = "something wrong happened";
+        errUpdate.success = '';
+        errUpdate.error = 'something wrong happened';
         SetNewReview(errUpdate);
       });
-    console.log(newReview);
     formRef.current.reset();
   };
   return (

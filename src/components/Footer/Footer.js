@@ -1,10 +1,10 @@
-import React from "react";
-import { Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import "./Footer.css";
+import React from 'react';
+import { Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './Footer.css';
 const Footer = () => {
   return (
-    <footer style={{ background: "#FBD062", padding: "4rem" }}>
+    <footer style={{ background: '#FBD062', padding: '4rem' }}>
       <div className='row footer'>
         <div className='col-md-6'>
           <div className='footerLeft'>
@@ -36,7 +36,9 @@ const Footer = () => {
           </Form>
         </div>
       </div>
-      <p className='text-center m-0'> &copy; copyright Orange labs 2020</p>
+      <p className='text-center m-0'>
+        &copy; copyright Orange labs {new Date().getFullYear()}
+      </p>
     </footer>
   );
 };

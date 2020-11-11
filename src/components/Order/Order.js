@@ -1,7 +1,7 @@
-import React, { useContext, useRef, useState } from "react";
-import { Form } from "react-bootstrap";
-import { UserContext } from "../../App";
-import "./Order.css";
+import React, { useContext, useRef, useState } from 'react';
+import { Form } from 'react-bootstrap';
+import { UserContext } from '../../App';
+import './Order.css';
 
 const Order = () => {
   const { LoggedInUser, SetLoggedInUser } = useContext(UserContext);
@@ -11,12 +11,12 @@ const Order = () => {
     img: `${selectedService.img}`,
     company_name: `${LoggedInUser.displayName}`,
     name: `${selectedService.name}`,
-    details: "",
+    details: '',
     price: `${selectedService.price}`,
     email: `${LoggedInUser.email}`,
-    success: "",
-    status: "pending",
-    error: "",
+    success: '',
+    status: 'pending',
+    error: '',
   });
 
   const inputHandler = e => {
@@ -35,25 +35,24 @@ const Order = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const formData = new FormData();
-    console.log(newOrder);
-    formData.append("file", file);
-    formData.append("img", newOrder.img);
-    formData.append("name", newOrder.name);
-    formData.append("email", newOrder.email);
-    formData.append("price", newOrder.price);
-    formData.append("company_name", newOrder.company_name);
-    formData.append("details", newOrder.details);
-    formData.append("status", newOrder.status);
+    formData.append('file', file);
+    formData.append('img', newOrder.img);
+    formData.append('name', newOrder.name);
+    formData.append('email', newOrder.email);
+    formData.append('price', newOrder.price);
+    formData.append('company_name', newOrder.company_name);
+    formData.append('details', newOrder.details);
+    formData.append('status', newOrder.status);
 
-    fetch("https://creative-agency-backend.herokuapp.com/addNewOrder", {
-      method: "POST",
+    fetch('https://creative-agency-backend.herokuapp.com/addNewOrder', {
+      method: 'POST',
       body: formData,
     })
       .then(response => {
         response.json();
         const orderInfo = { ...newOrder };
-        orderInfo.error = "";
-        orderInfo.success = "Order Placed Successfully";
+        orderInfo.error = '';
+        orderInfo.success = 'Order Placed Successfully';
         SetNewOrder(orderInfo);
       })
       .then(data => {
@@ -62,8 +61,8 @@ const Order = () => {
       .catch(error => {
         console.error(error);
         const updateOrderInfo = { ...newOrder };
-        updateOrderInfo.error = "Something wrong happened";
-        updateOrderInfo.success = "";
+        updateOrderInfo.error = 'Something wrong happened';
+        updateOrderInfo.success = '';
         SetNewOrder(updateOrderInfo);
       });
     formRef.current.reset();
@@ -74,7 +73,7 @@ const Order = () => {
   return (
     <div className='orderForm'>
       {!newOrder.success && (
-        <p style={{ color: "red" }}>
+        <p style={{ color: 'red' }}>
           <small>you must fill up all field include picture</small>
         </p>
       )}

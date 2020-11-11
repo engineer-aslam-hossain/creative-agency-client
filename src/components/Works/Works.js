@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
-import "./Works.css";
+import React, { useEffect, useState } from 'react';
+import Slider from 'react-slick';
+import './Works.css';
 const Works = () => {
   const [Sliders, SetSlider] = useState([]);
 
   useEffect(() => {
-    fetch("https://creative-agency-backend.herokuapp.com/getSliderData")
+    fetch('https://creative-agency-backend.herokuapp.com/getSliderData')
       .then(res => res.json())
       .then(getSlider => {
         SetSlider(getSlider);
@@ -20,14 +20,14 @@ const Works = () => {
     autoplay: true,
     speed: 3000,
     autoplaySpeed: 3000,
-    cssEase: "linear",
+    cssEase: 'linear',
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -54,15 +54,15 @@ const Works = () => {
       <h3
         className='text-center'
         style={{
-          fontWeight: "500",
-          fontSize: "36px",
-          marginBottom: "3rem",
-          color: "white",
+          fontWeight: '500',
+          fontSize: '36px',
+          marginBottom: '3rem',
+          color: 'white',
         }}>
-        Here are some of <span style={{ color: "#7AB259" }}>our works</span>{" "}
+        Here are some of <span style={{ color: '#7AB259' }}>our works</span>{' '}
       </h3>
 
-      <div>
+      <div className='sliderDiv'>
         <Slider {...settings}>
           {Sliders.map(slider => (
             <div key={slider._id}>

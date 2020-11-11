@@ -35,6 +35,9 @@
 }
 
 @media (max-width: 768px) {
+  header.container {
+    left: 0 !important;
+  }
   .ml-auto.justify-content-center.align-items-center.navbar-nav {
     background: white;
     width: 10rem;
@@ -61,6 +64,9 @@
     width: 18rem !important;
     height: 12rem !important;
     margin: 3rem auto !important;
+  }
+  img.logoImg {
+    width: 11rem !important;
   }
 }
 

@@ -12,6 +12,8 @@ img.personImg.rounded-circle {
 }
 .singlerReview {
   max-width: 30% !important;
+  border: none !important;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.08);
 }
 @media (max-width: 768px) {
   .singlerReview {
